@@ -19,5 +19,4 @@ $this->params['breadcrumbs'][] = $this->title;
 		</ul>
 		We want users to be able to take part in the research community, so as a reuslt this site is dedicated to the inspiration of learning and pursuing after greater knowledge.  Here you can contribute to the community by helping out fellow researchers with some of thier problems. Whether you are a seasoned vet or a brand new researcher this is a place to get started. There are many different research topics to choose from and if you have more ideas let us know! We hope you find a topic to your liking, and goodluck with your research.
     </p>
-    <code><?= __FILE__ ?></code>
 </div>
