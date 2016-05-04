@@ -151,15 +151,16 @@ class SiteController extends Controller
         $model = new UploadForm();
 
         if (Yii::$app->request->isPost) {
-            $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
+            $model->imageFile = UploadedFile::getInstances($model, 'imageFile');
             if ($model->upload()) {
                 // file is uploaded successfully
                 return;
             }
         }
 
+    
+
         return $this->render('projects', ['model' => $model]);
-        //return $this->render('projects');
     }
     /**
      * Signs user up.
