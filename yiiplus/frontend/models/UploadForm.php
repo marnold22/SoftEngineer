@@ -11,10 +11,13 @@ class UploadForm extends Model
      * @var UploadedFile
      */
     public $imageFile;
+    public $projectname;
+    public $username;
 
     public function rules()
     {
         return [
+            [['imageFile', 'projectname', 'username'], 'required'],
             [['imageFile'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg, docx'],
         ];
     }

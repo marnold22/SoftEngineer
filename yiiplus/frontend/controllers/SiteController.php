@@ -151,14 +151,11 @@ class SiteController extends Controller
         $model = new UploadForm();
 
         if (Yii::$app->request->isPost) {
-            Yii::error("@@@@@@@@@@@@@@\n");
             $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
             if ($model->upload()) {
-                Yii::error('This is the file ' . $model->imageFile);
                 // file is uploaded successfully
                 return;
             }
-            Yii::error('Error uploading file ' . $model->imageFile);
         }
 
         return $this->render('projects', ['model' => $model]);
