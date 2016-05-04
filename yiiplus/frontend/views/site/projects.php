@@ -13,9 +13,11 @@ $this->params['breadcrumbs'][] = $this->title;
 
 	<div class='row'>
 		<div class="col-lg-3">
-			<?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]) ?>
+			<?php $form = ActiveForm::begin(['id' => 'upload-form']); ?>
+				
+				<?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]) ?>
 			
-				<?= $form->field($model, 'imageFile')->fileInput() ?>
+					<?= $form->field($model, 'imageFile')->fileInput() ?>
 
 				<?= $form->field($model, 'projectname') ?>
 
