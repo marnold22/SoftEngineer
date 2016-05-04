@@ -11,10 +11,13 @@ class UploadForm extends Model
      * @var UploadedFile
      */
     public $imageFile;
+    public $projectname;
+    public $username;
 
     public function rules()
     {
         return [
+            [['imageFile', 'projectname', 'username'], 'required'],
             [['imageFile'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg, docx'],
         ];
     }
@@ -22,7 +25,10 @@ class UploadForm extends Model
     public function upload()
     {
         if ($this->validate()) {
-            $this->imageFile->saveAs('uploads/' . $this->imageFile->baseName . '.' . $this->imageFile->extension);
+            Yii::error("validated\n");
+            $output = print_r($this->imageFile, true);
+            Yii::error($output);
+            $this->imageFile->saveAs(Yii::$app->basePath.'/web/uploads/' . $this->imageFile->baseName . '.' . $this->imageFile->extension);
             return true;
         } else {
             return false;
