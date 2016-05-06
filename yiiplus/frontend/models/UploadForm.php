@@ -17,20 +17,19 @@ class UploadForm extends Model
     public function rules()
     {
         return [
-            [['imageFile', 'projectname', 'username'], 'required'],
-            [['imageFile'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg, docx'],
+            [['imageFile'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg, jpeg', 'maxFiles' => 4],
         ];
     }
     
     public function upload()
     {
         if ($this->validate()) {
-            Yii::error("validated\n");
-            $output = print_r($this->imageFile, true);
-            Yii::error($output);
-            $this->imageFile->saveAs(Yii::$app->basePath.'/web/uploads/' . $this->imageFile->baseName . '.' . $this->imageFile->extension);
+            foreach ($this->imageFile as $file) {
+                $file->saveAs(Yii::$app->basePath.'/web/uploads/' . $file->baseName . '.' . $file->extension);
+            }
             return true;
-        } else {
+        } 
+        else {
             return false;
         }
     }
