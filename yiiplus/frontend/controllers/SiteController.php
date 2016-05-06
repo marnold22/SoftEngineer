@@ -158,7 +158,7 @@ class SiteController extends Controller
             }
         }
 
-    
+
 
         return $this->render('projects', ['model' => $model]);
     }
