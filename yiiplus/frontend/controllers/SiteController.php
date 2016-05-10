@@ -8,6 +8,7 @@ use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use frontend\models\UploadForm;
+use frontend\models\CreateProject;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
@@ -108,6 +109,18 @@ class SiteController extends Controller
         Yii::$app->user->logout();
 
         return $this->goHome();
+    }
+
+    /**
+    *
+    *
+    * @return mixed
+    */
+    public function actionCreateProject()
+    {
+        $model = new CreateProject();
+
+        return $this->render('createProject', ['model' => $model]);
     }
 
     /**
