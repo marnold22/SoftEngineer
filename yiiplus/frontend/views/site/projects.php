@@ -12,11 +12,13 @@ $this->params['breadcrumbs'][] = $this->title;
 	<p>If you want to upload data or a project please fill out the form.</p>
 
 
-<?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]) ?>
-	<?= $form->field($model, 'imageFile[]')->fileInput(['multiple' => true, 'accept' => 'image/*']) ?>
-	<button>Submit</button> 
-<?php ActiveForm::end() ?>
+	<?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
+	<?= $form->field($model, 'file')->fileInput() ?>
+
+	<button>Submit</button>
+
+	<?php ActiveForm::end(); ?>
 
 
 

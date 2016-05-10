@@ -7,30 +7,16 @@ use Yii;
 
 class UploadForm extends Model
 {
-    /**
-     * @var UploadedFile
-     */
-    public $imageFile;
-    public $projectname;
-    public $username;
+    public $file;
+
+
 
     public function rules()
     {
         return [
-            [['imageFile'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg, jpeg', 'maxFiles' => 4],
+            [['file'], 'file'],
         ];
-    }
-    
-    public function upload()
-    {
-        if ($this->validate()) {
-            foreach ($this->imageFile as $file) {
-                $file->saveAs(Yii::$app->basePath.'/web/uploads/' . $file->baseName . '.' . $file->extension);
-            }
-            return true;
-        } 
-        else {
-            return false;
-        }
+
     }
 }
+?>
