@@ -29,10 +29,10 @@ class SiteController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout', 'signup', 'projects'],
+                'only' => ['logout', 'projects'],
                 'rules' => [
                     [
-                        'actions' => ['signup', 'projects'],
+                        'actions' => ['projects'],
                         'allow' => false,
                         'roles' => ['?'],
                     ],
@@ -116,12 +116,13 @@ class SiteController extends Controller
     *
     * @return mixed
     */
-    public function actionCreateProject()
+    /*public function actionCreateProject()
     {
         $model = new CreateProject();
 
         return $this->render('createProject', ['model' => $model]);
     }
+    */
 
     /**
      * Displays contact page.
