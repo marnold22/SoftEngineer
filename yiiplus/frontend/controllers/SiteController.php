@@ -9,6 +9,7 @@ use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use frontend\models\UploadForm;
 use frontend\models\CreateProject;
+use backend\models\Projects;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
@@ -145,6 +146,17 @@ class SiteController extends Controller
                 'model' => $model,
             ]);
         }
+    }
+
+
+    /**
+     * Displays contact page.
+     ** @return mixed
+     */
+    public function actionDisplay()
+    {
+        $query = Projects::find()->all();
+        return $this->render('data', ['Projects' => $query]);
     }
 
     /**
