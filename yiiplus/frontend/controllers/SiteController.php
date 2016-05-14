@@ -150,16 +150,6 @@ class SiteController extends Controller
 
 
     /**
-     * Displays contact page.
-     ** @return mixed
-     */
-    public function actionDisplay()
-    {
-        $query = Projects::find()->all();
-        return $this->render('data', ['Projects' => $query]);
-    }
-
-    /**
      * Displays about page.
      *
      * @return mixed
@@ -174,6 +164,18 @@ class SiteController extends Controller
     */
     public function actionProjects()
     {
+        $query = Projects::find()->all();
+        return $this->render('projects/data', ['Projects' => $query]);
+
+    }
+
+        /**
+    * Displays Projects page
+    * @return mixed
+    */
+    public function actionData()
+    {
+
         $model = new UploadForm();
         if (Yii::$app->request->isPost) {
             $model->file = UploadedFile::getInstance($model, 'file');
@@ -183,8 +185,29 @@ class SiteController extends Controller
             }
         }
 
-        return $this->render('projects', ['model' => $model]);
+        return $this->render('projects', ['model' => $model]); 
     }
+
+    /**
+    * Displays Projects page
+    * @return mixed
+    */
+    public function actionCreatProjects()
+    {
+        $model = new UploadForm();
+        if (Yii::$app->request->isPost) {
+            $model->file = UploadedFile::getInstance($model, 'file');
+
+            if ($model->validate()) {
+                $model->file->saveAs('uploads/' . $model->file->baseName . '.' . $model->file->extension);
+            }
+        }
+
+        return $this->render('projects', ['model' => $model]); 
+    }
+
+
+
     /**
      * Signs user up.
      *

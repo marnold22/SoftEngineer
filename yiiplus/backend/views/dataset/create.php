@@ -4,13 +4,13 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\SiteData */
+/* @var $model backend\models\Dataset */
 
-$this->title = 'Create Site Data';
-$this->params['breadcrumbs'][] = ['label' => 'Site Data', 'url' => ['index']];
+$this->title = 'Create Dataset';
+$this->params['breadcrumbs'][] = ['label' => 'Datasets', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-data-create">
+<div class="dataset-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

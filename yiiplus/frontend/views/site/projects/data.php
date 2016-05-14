@@ -11,7 +11,7 @@ $this->params['breadcrumbs'][] = $this->title;
 		<ul>
 			<?php foreach ($Projects as $Project): ?>
     		<li>
-        	<?= Html::encode("{$project->Name} ({$description->Description})") ?>:
+        	<?= Html::encode("{$Project->Name}") ?>:
     		</li>
 			<?php endforeach; ?>
 		</ul>
