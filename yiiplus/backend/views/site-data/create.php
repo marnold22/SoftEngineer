@@ -7,7 +7,7 @@ use yii\helpers\Html;
 /* @var $model backend\models\SiteData */
 
 $this->title = 'Create Site Data';
-$this->params['breadcrumbs'][] = ['label' => 'Site Data', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Site Datas', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-data-create">

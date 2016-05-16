@@ -8,12 +8,12 @@ use Yii;
  * This is the model class for table "sitedata".
  *
  * @property integer $DID
+ * @property integer $PID
  * @property string $Location
  *
  * @property Contributions[] $contributions
  * @property User[] $us
- * @property Dataset[] $datasets
- * @property Projects[] $ps
+ * @property Projects $p
  */
 class SiteData extends \yii\db\ActiveRecord
 {
@@ -31,8 +31,10 @@ class SiteData extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['Location'], 'required'],
+            [['PID'], 'required'],
+            [['PID'], 'integer'],
             [['Location'], 'string', 'max' => 255],
+            [['PID'], 'exist', 'skipOnError' => true, 'targetClass' => Projects::className(), 'targetAttribute' => ['PID' => 'PID']],
         ];
     }
 
@@ -43,6 +45,7 @@ class SiteData extends \yii\db\ActiveRecord
     {
         return [
             'DID' => 'Did',
+            'PID' => 'Pid',
             'Location' => 'Location',
         ];
     }
@@ -66,16 +69,8 @@ class SiteData extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getDatasets()
+    public function getP()
     {
-        return $this->hasMany(Dataset::className(), ['DID' => 'DID']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getPs()
-    {
-        return $this->hasMany(Projects::className(), ['PID' => 'PID'])->viaTable('dataset', ['DID' => 'DID']);
+        return $this->hasOne(Projects::className(), ['PID' => 'PID']);
     }
 }

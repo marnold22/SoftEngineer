@@ -7,7 +7,7 @@ use yii\helpers\Html;
 
 $this->title = 'Update Site Data: ' . $model->DID;
 $this->params['breadcrumbs'][] = ['label' => 'Site Datas', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->DID, 'url' => ['view', 'id' => $model->DID]];
+$this->params['breadcrumbs'][] = ['label' => $model->DID, 'url' => ['view', 'DID' => $model->DID, 'PID' => $model->PID]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
 <div class="site-data-update">

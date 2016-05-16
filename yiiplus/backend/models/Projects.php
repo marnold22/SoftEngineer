@@ -13,8 +13,7 @@ use Yii;
  *
  * @property Credentials[] $credentials
  * @property User[] $us
- * @property Dataset[] $datasets
- * @property Sitedata[] $ds
+ * @property Sitedata[] $sitedatas
  */
 class Projects extends \yii\db\ActiveRecord
 {
@@ -68,16 +67,8 @@ class Projects extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getDatasets()
+    public function getSitedatas()
     {
-        return $this->hasMany(Dataset::className(), ['PID' => 'PID']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getDs()
-    {
-        return $this->hasMany(Sitedata::className(), ['DID' => 'DID'])->viaTable('dataset', ['PID' => 'PID']);
+        return $this->hasMany(Sitedata::className(), ['PID' => 'PID']);
     }
 }

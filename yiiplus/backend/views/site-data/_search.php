@@ -17,6 +17,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'DID') ?>
 
+    <?= $form->field($model, 'PID') ?>
+
     <?= $form->field($model, 'Location') ?>
 
     <div class="form-group">

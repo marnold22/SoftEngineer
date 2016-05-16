@@ -18,7 +18,7 @@ class SiteDataSearch extends SiteData
     public function rules()
     {
         return [
-            [['DID'], 'integer'],
+            [['DID', 'PID'], 'integer'],
             [['Location'], 'safe'],
         ];
     }
@@ -60,6 +60,7 @@ class SiteDataSearch extends SiteData
         // grid filtering conditions
         $query->andFilterWhere([
             'DID' => $this->DID,
+            'PID' => $this->PID,
         ]);
 
         $query->andFilterWhere(['like', 'Location', $this->Location]);

@@ -46,13 +46,14 @@ class SiteDataController extends Controller
 
     /**
      * Displays a single SiteData model.
-     * @param integer $id
+     * @param integer $DID
+     * @param integer $PID
      * @return mixed
      */
-    public function actionView($id)
+    public function actionView($DID, $PID)
     {
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $this->findModel($DID, $PID),
         ]);
     }
 
@@ -66,7 +67,7 @@ class SiteDataController extends Controller
         $model = new SiteData();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->DID]);
+            return $this->redirect(['view', 'DID' => $model->DID, 'PID' => $model->PID]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -77,15 +78,16 @@ class SiteDataController extends Controller
     /**
      * Updates an existing SiteData model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
+     * @param integer $DID
+     * @param integer $PID
      * @return mixed
      */
-    public function actionUpdate($id)
+    public function actionUpdate($DID, $PID)
     {
-        $model = $this->findModel($id);
+        $model = $this->findModel($DID, $PID);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->DID]);
+            return $this->redirect(['view', 'DID' => $model->DID, 'PID' => $model->PID]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -96,12 +98,13 @@ class SiteDataController extends Controller
     /**
      * Deletes an existing SiteData model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
+     * @param integer $DID
+     * @param integer $PID
      * @return mixed
      */
-    public function actionDelete($id)
+    public function actionDelete($DID, $PID)
     {
-        $this->findModel($id)->delete();
+        $this->findModel($DID, $PID)->delete();
 
         return $this->redirect(['index']);
     }
@@ -109,13 +112,14 @@ class SiteDataController extends Controller
     /**
      * Finds the SiteData model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
+     * @param integer $DID
+     * @param integer $PID
      * @return SiteData the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($id)
+    protected function findModel($DID, $PID)
     {
-        if (($model = SiteData::findOne($id)) !== null) {
+        if (($model = SiteData::findOne(['DID' => $DID, 'PID' => $PID])) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

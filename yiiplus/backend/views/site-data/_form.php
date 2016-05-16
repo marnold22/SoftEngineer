@@ -1,8 +1,8 @@
 <?php
 
 use yii\helpers\Html;
-use yii\helpers\ArrayHelper;
 use yii\widgets\ActiveForm;
+use yii\helpers\ArrayHelper;
 use backend\models\Projects;
 
 /* @var $this yii\web\View */
@@ -14,10 +14,13 @@ use backend\models\Projects;
 
     <?php $form = ActiveForm::begin(); ?>
 
+    <?= $form->field($model, 'PID')->textInput() ?>
+
     <?= $form->field($model, 'Location')->textInput(['maxlength' => true]) ?>
+
     <?= $form->field($model, 'PID')->dropDownlist(ArrayHelper::map(Projects::find()->all(), 'PID', 'Name'), 
     	['prompt' => 'Select Project']
-    	) 
+    	)->label('Project Title')
     ?>
 
     <div class="form-group">

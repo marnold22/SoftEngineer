@@ -3,11 +3,12 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 
+
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\SiteDataSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Site Data';
+$this->title = 'Site Datas';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-data-index">
@@ -25,6 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'DID',
+            'PID::Project Name',
             'Location',
 
             ['class' => 'yii\grid\ActionColumn'],
