@@ -8,9 +8,10 @@ use yii\grid\GridView;
 /* @var $searchModel backend\models\SiteDataSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Site Datas';
+$this->title = 'Site Data';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+
 <div class="site-data-index">
 
     <h1><?= Html::encode($this->title) ?></h1>

@@ -8,6 +8,7 @@ use backend\models\SiteDataSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * SiteDataController implements the CRUD actions for SiteData model.
@@ -67,7 +68,14 @@ class SiteDataController extends Controller
         $model = new SiteData();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'DID' => $model->DID, 'PID' => $model->PID]);
+
+            //get instance of uploaded file
+            $model->file = UploadedFile::getInstance($model, 'file');
+            $model->file->saveAs('uploads/'. $model->file->baseName . '.' . $model->file->extension);
+
+            $model->file_location = 'uploads/'. $model->file->baseName . '.' . $model->file->extension;
+
+            return $this->redirect(['view', 'DID' => $model->DID, 'PID' => $model->PID,]);
         } else {
             return $this->render('create', [
                 'model' => $model,
