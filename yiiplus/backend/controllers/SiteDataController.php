@@ -71,17 +71,19 @@ class SiteDataController extends Controller
 
             //get instance of uploaded file
             $model->file = UploadedFile::getInstance($model, 'file');
+            
             $model->file->saveAs('uploads/'. $model->file->baseName . '.' . $model->file->extension);
 
-            $model->file_location = 'uploads/'. $model->file->baseName . '.' . $model->file->extension;
+            $model->Location = 'uploads/'. $model->file->baseName . '.' . $model->file->extension;
 
-            return $this->redirect(['view', 'DID' => $model->DID, 'PID' => $model->PID,]);
+            return $this->redirect(['view', 'DID' => $model->DID, 'PID' => $model->PID, 'Location' => $model->Location]);
         } else {
             return $this->render('create', [
                 'model' => $model,
             ]);
         }
     }
+
 
     /**
      * Updates an existing SiteData model.

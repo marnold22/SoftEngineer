@@ -34,7 +34,7 @@ class SiteData extends \yii\db\ActiveRecord
         return [
             [['PID'], 'required'],
             [['PID'], 'integer'],
-            //[['Location'], 'string', 'max' => 255],
+            [['Location'], 'string', 'max' => 255],
             [['file'], 'file'],
             [['PID'], 'exist', 'skipOnError' => true, 'targetClass' => Projects::className(), 'targetAttribute' => ['PID' => 'PID']],
         ];
@@ -48,8 +48,7 @@ class SiteData extends \yii\db\ActiveRecord
         return [
             'DID' => 'Did',
             'PID' => 'Pid',
-            //'Location' => 'file',
-            'file_location' => 'location',
+            'Location' => 'Location',
         ];
     }
 

@@ -29,7 +29,8 @@ use backend\models\Projects;
 
 
     <!--<?= $form->field($model, 'Location')->textInput(['maxlength' => true]) ?>-->
-    <?= $form->field($model, 'file-')->fileInput(); ?>
+    
+    <?= $form->field($model, 'file')->fileInput(); ?>
 
 
     <div class="form-group">

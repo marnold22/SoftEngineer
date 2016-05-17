@@ -19,7 +19,7 @@ class SiteDataSearch extends SiteData
     {
         return [
             [['DID', 'PID'], 'integer'],
-            //[['Location'], 'safe'],
+            [['Location'], 'safe'],
         ];
     }
 
@@ -63,7 +63,7 @@ class SiteDataSearch extends SiteData
             'PID' => $this->PID,
         ]);
 
-        //$query->andFilterWhere(['like', 'Location', $this->Location]);
+        $query->andFilterWhere(['like', 'Location', $this->Location]);
 
         return $dataProvider;
     }
