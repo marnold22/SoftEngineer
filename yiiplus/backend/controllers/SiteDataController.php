@@ -72,12 +72,14 @@ class SiteDataController extends Controller
             //get instance of uploaded file
             $model->file = UploadedFile::getInstance($model, 'file');
 
+            $loc = 'uploads/' . $model->PID . "-" . $model->file->baseName . '-'. $model->DID . '.' . $model->file->extension;
+
             //$loc = 'uploads/'. $model->file->baseName . '.' . $model->file->extension;
             if($model->validate()) {
-                $model->file->saveAs('uploads/' . $model->file->baseName . '.' . $model->file->extension);
+                $model->file->saveAs($loc);
             }
 
-            $model->Location = 'uploads/'. $model->file->baseName . '.' . $model->file->extension;
+            $model->Location = $loc;
             if($model->save()) {
                 echo "success";
             }

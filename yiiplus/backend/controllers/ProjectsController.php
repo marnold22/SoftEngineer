@@ -8,7 +8,10 @@ use backend\models\ProjectsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use yii\helpers\BaseUrl;
+/*use yii\base\Application;
+use yii\base\Configurable;
+use yii\web\UrlManager;
 /**
  * ProjectsController implements the CRUD actions for Projects model.
  */
@@ -66,6 +69,8 @@ class ProjectsController extends Controller
         $model = new Projects();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            //Yii::error("this is the url", Yii::$app->urlManager->createAbsoluteUrl(['projects/'.$model->Name], $scheme = null));
+            //return $this->redirect([]); //'id' => $model->PID]);
             return $this->redirect(['view', 'id' => $model->PID]);
         } else {
             return $this->render('create', [

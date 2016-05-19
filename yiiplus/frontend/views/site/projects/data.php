@@ -2,20 +2,22 @@
 use yii\helpers\Html;
 use yii\widgets\LinkPager;
 
-$this->title = 'Data';
+$this->title = 'Projects';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <div class="site-data">
     <h1><?= Html::encode($this->title) ?></h1>
-		<ul>
-			<?php foreach ($Projects as $Project): ?>
-    		<li>
-    			<h3>
-				<?= Html::encode("{$Project->Name}") ?>:
-    			</h3>
-        	 <?= Html::encode("{$Project->Description}") ?>
-    		</li>
-			<?php endforeach; ?>
-		</ul>
+
+        <?php foreach ($Projects as $Project): ?>
+            <?php echo "<a href = " . "'http://google.com/''>" . "<div class= 'project col-md-6'>"; ?>
+                <div class="title">
+                    <?= Html::encode("{$Project->Name}") ?>:
+                </div>
+                <div class="description">
+                 <?= Html::encode("{$Project->Description}") ?>
+                </div>
+            </div> </a>
+        <?php endforeach; ?>    
+            
 </div>
