@@ -112,7 +112,7 @@ a.desc:after {
 }
 .navbar {
     background-color: #333c36;
-    height: 60px;
+    height: 51px;
 }
 
 .breadcrumb {
@@ -167,12 +167,8 @@ a.desc:after {
 
 }
 
-.transparent {
-    background:rgba(255,255,255,0.5);
-}
-
 #logo {
-    margin-top: -18px ;
+    margin-top: -20px ;
 
 }
 /* deafault bootstrap */
@@ -204,10 +200,13 @@ h4 {
     background-color: #e3e4db;
     padding:10px;
     margin-top: 10px;
-    margin-bottom: 10px;
     margin-left: 10px;
     margin-right: 0px;
     position: relative;
+}
+
+.plink {
+    color: #000 !important; 
 }
 
 .project .title {
@@ -229,5 +228,7 @@ h4 {
     bottom: 10px;
 }
 .proj-btn {
-   margin: 5px;
+   margin-left: 5px;
+   margin-top: -32px;
 }
+

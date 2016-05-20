@@ -8,9 +8,18 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <div class="site-data">
     <h1><?= Html::encode($this->title) ?></h1>
+    <a class="btn btn-md btn-primary pull-right proj-btn"> View My Projects </a>
+    <a class="btn btn-md btn-primary pull-right proj-btn"> Add Project </a>
+    
+    <?php 
+    $pnumber;
+
+
+
+    ?>
 
         <?php foreach ($Projects as $Project): ?>
-            <?php echo "<a href = " . "'http://google.com/''>" . "<div class= 'project col-md-6'>"; ?>
+            <?php echo "<a href = 'http://localhost/yiiplus/frontend/web/index.php?r=site%2Fview&id=". $Project->PID . "' class='plink' > <div class= 'project col-md-6'>"; ?>
                 <div class="title">
                     <?= Html::encode("{$Project->Name}") ?>:
                 </div>
