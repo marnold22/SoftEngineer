@@ -8,6 +8,9 @@ use yii\widgets\ActiveForm;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
+
+<!-- Searches the projects table -->
+
 <div class="projects-search">
 
     <?php $form = ActiveForm::begin([

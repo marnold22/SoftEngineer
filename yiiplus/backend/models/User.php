@@ -67,6 +67,10 @@ class User extends \yii\db\ActiveRecord
     }
 
     /**
+    * These are all the realtational funcitons
+    **/
+
+    /**
      * @return \yii\db\ActiveQuery
      */
     public function getContributions()

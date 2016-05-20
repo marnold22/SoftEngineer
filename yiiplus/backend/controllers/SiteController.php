@@ -53,11 +53,17 @@ class SiteController extends Controller
         ];
     }
 
+    /**
+    * This creates the index page for the entire backend
+    **/
     public function actionIndex()
     {
         return $this->render('index');
     }
 
+    /**
+    * Login in fucntion for backend
+    **/
     public function actionLogin()
     {
         if (!\Yii::$app->user->isGuest) {

@@ -12,6 +12,9 @@ use frontend\models\CreateProject;
 use backend\models\Projects;
 use backend\models\ProjectsSearch;
 use backend\models\ProjectsController;
+use backend\models\SiteData;;
+use backend\models\SiteDataSearch;
+use backend\models\SiteDataController;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
@@ -178,7 +181,6 @@ class SiteController extends Controller
         }
     }
 
-
     /**
      * Displays about page.
      *
@@ -190,6 +192,7 @@ class SiteController extends Controller
     }
     /**
     * Displays Projects page
+    * Displays all projects too
     * @return mixed
     */
     public function actionProjects()
@@ -199,8 +202,19 @@ class SiteController extends Controller
 
     }
 
-        /**
-    * Displays Projects page
+    /**
+    * Displays Data on projects view - Function not wroking all the way yet
+    * @return mixed
+    */
+    public function actionDisplayData()
+    {
+        $query = SiteData::find()->all();
+        return $this->render('view', array('Datatype' => $query));
+    }
+
+
+    /**
+    * Allows to upload files "data"
     * @return mixed
     */
     public function actionData()
@@ -217,25 +231,6 @@ class SiteController extends Controller
 
         return $this->render('projects', ['model' => $model]); 
     }
-
-    /**
-    * Displays Projects page
-    * @return mixed
-    */
-    public function actionCreatProjects()
-    {
-        $model = new UploadForm();
-        if (Yii::$app->request->isPost) {
-            $model->file = UploadedFile::getInstance($model, 'file');
-
-            if ($model->validate()) {
-                $model->file->saveAs('uploads/' . $model->file->baseName . '.' . $model->file->extension);
-            }
-        }
-
-        return $this->render('projects', ['model' => $model]); 
-    }
-
 
 
     /**

@@ -10,6 +10,9 @@ use yii\bootstrap\ActiveForm;
 $this->title = 'Signup';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+
+<!-- Generates the form for creating a new user and signing up - will have more security in future -->
+
 <div class="site-signup">
     <h1><?= Html::encode($this->title) ?></h1>
 

@@ -8,6 +8,9 @@ use yii\widgets\ActiveForm;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
+<!-- Searches the users table -->
+
+
 <div class="user-search">
 
     <?php $form = ActiveForm::begin([

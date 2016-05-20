@@ -52,6 +52,12 @@ class SiteData extends \yii\db\ActiveRecord
         ];
     }
 
+
+
+    /**
+    * These are all the realtational funcitons
+    **/
+
     /**
      * @return \yii\db\ActiveQuery
      */

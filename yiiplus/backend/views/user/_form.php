@@ -8,6 +8,8 @@ use yii\widgets\ActiveForm;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
+<!-- This is the form for generating new users asn their login credentials *Also on frontend* -->
+
 <div class="user-form">
 
     <?php $form = ActiveForm::begin(); ?>

@@ -10,6 +10,9 @@ use backend\models\Projects;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
+<!-- This generates the form for creating/adding new data elements to projects -->
+
+
 <div class="site-data-form">
 
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>

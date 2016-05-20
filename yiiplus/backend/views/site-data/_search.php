@@ -8,6 +8,9 @@ use yii\widgets\ActiveForm;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
+
+<!-- Searches the site-data table -->
+
 <div class="site-data-search">
 
     <?php $form = ActiveForm::begin([

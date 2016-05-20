@@ -10,6 +10,9 @@ $this->title = $model->DID;
 $this->params['breadcrumbs'][] = ['label' => 'Site Datas', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+
+<!-- Displays all content for site-data table-->
+
 <div class="site-data-view">
 
     <h1><?= Html::encode($this->title) ?></h1>

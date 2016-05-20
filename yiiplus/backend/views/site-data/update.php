@@ -10,6 +10,9 @@ $this->params['breadcrumbs'][] = ['label' => 'Site Datas', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->DID, 'url' => ['view', 'DID' => $model->DID, 'PID' => $model->PID]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
+
+<!-- updates the view for site-data -->
+
 <div class="site-data-update">
 
     <h1><?= Html::encode($this->title) ?></h1>

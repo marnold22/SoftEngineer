@@ -10,6 +10,9 @@ use yii\bootstrap\ActiveForm;
 $this->title = 'Request password reset';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+
+<!-- Allows you to ask for a new password then directs you to actual resetPassword.php -->
+
 <div class="site-request-password-reset">
     <h1><?= Html::encode($this->title) ?></h1>
 

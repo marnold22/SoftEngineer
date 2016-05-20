@@ -4,6 +4,9 @@
 
 $this->title = 'Center of Excellence for Bioinformatics Research';
 ?>
+
+<!-- This is the main index (Home) page that everything lands on -->
+
 <div class="site-index" id="sciencebg">
 
     <div class="jumbotron">

@@ -40,6 +40,7 @@ AppAsset::register($this);
     <a href="http://localhost/yiiplus/frontend/web/index.php?r=site%2Findex"> <img src="/yiiplus/frontend/assets/white.png" href="site/index" class="pull-left" id="logo" type="image" height=104 width=246> </a>
 
     <?php
+    //These are the items used in the main bar
     $menuItems = [
         ['label' => 'Home', 'url' => ['/site/index']],
         ['label' => 'Projects', 'url' => ['/site/projects']],

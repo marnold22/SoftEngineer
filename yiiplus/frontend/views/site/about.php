@@ -7,6 +7,9 @@ use yii\helpers\Html;
 $this->title = 'About';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+
+<!-- This is the about view it has the mission statement-->
+
 <div class="site-about">
     <h1><?= Html::encode($this->title) ?></h1>
     <p>

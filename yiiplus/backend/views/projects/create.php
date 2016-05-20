@@ -10,6 +10,9 @@ $this->title = 'Create Projects';
 $this->params['breadcrumbs'][] = ['label' => 'Projects', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+
+<!-- Initializes the backend for a projects page -->
+
 <div class="projects-create">
 
     <h1><?= Html::encode($this->title) ?></h1>

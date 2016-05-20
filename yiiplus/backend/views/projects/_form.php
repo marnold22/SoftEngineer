@@ -8,6 +8,8 @@ use yii\widgets\ActiveForm;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
+<!-- This generates the form for adding new projects -->
+
 <div class="projects-form">
 
     <?php $form = ActiveForm::begin(); ?>

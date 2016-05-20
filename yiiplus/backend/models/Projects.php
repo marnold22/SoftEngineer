@@ -27,6 +27,7 @@ class Projects extends \yii\db\ActiveRecord
 
     /**
      * @inheritdoc
+     * Rules for the Projects Databse
      */
     public function rules()
     {
@@ -47,6 +48,11 @@ class Projects extends \yii\db\ActiveRecord
             'Description' => 'Description',
         ];
     }
+
+
+    /**
+    * These are all the realtational funcitons
+    **/
 
     /**
      * @return \yii\db\ActiveQuery
