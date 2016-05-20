@@ -40,6 +40,4 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
 
-    <h3> Data <h3>
-
         
