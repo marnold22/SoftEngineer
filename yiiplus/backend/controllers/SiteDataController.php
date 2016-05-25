@@ -9,6 +9,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
+use yii\web\ForbiddenHttpException;
 
 /**
  * SiteDataController implements the CRUD actions for SiteData model.
@@ -65,33 +66,38 @@ class SiteDataController extends Controller
      */
     public function actionCreate()
     {
-        $model = new SiteData();
+        if( Yii::$app->user->can('add-data') )
+        {
+            $model = new SiteData();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            if ($model->load(Yii::$app->request->post()) && $model->save()) {
 
-            //get instance of uploaded file
-            $model->file = UploadedFile::getInstance($model, 'file');
+                //get instance of uploaded file
+                $model->file = UploadedFile::getInstance($model, 'file');
 
-            $loc = 'uploads/' . $model->PID . "-" . $model->file->baseName . '-'. $model->DID . '.' . $model->file->extension;
+                $loc = 'uploads/' . $model->PID . "-" . $model->file->baseName . '-'. $model->DID . '.' . $model->file->extension;
 
-            //$loc = 'uploads/'. $model->file->baseName . '.' . $model->file->extension;
-            if($model->validate()) {
-                $model->file->saveAs($loc);
+                //$loc = 'uploads/'. $model->file->baseName . '.' . $model->file->extension;
+                if($model->validate()) {
+                    $model->file->saveAs($loc);
+                }
+
+                $model->Location = $loc;
+                if($model->save()) {
+                    echo "success";
+                }
+                else
+                    echo "failed to write file name to db.";
+
+
+                return $this->redirect(['view', 'DID' => $model->DID, 'PID' => $model->PID, 'Location' => $model->Location]);
+            } else {
+                return $this->render('create', [
+                    'model' => $model,
+                ]);
             }
-
-            $model->Location = $loc;
-            if($model->save()) {
-                echo "success";
-            }
-            else
-                echo "failed to write file name to db.";
-
-
-            return $this->redirect(['view', 'DID' => $model->DID, 'PID' => $model->PID, 'Location' => $model->Location]);
         } else {
-            return $this->render('create', [
-                'model' => $model,
-            ]);
+            throw new ForbiddenHttpException;
         }
     }
 

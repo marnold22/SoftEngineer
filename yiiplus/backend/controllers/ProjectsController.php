@@ -9,6 +9,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\helpers\BaseUrl;
+use yii\web\ForbiddenHttpException;
 /*use yii\base\Application;
 use yii\base\Configurable;
 use yii\web\UrlManager;
@@ -66,16 +67,21 @@ class ProjectsController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Projects();
+        if( Yii::$app->user->can( 'create-project' ) )
+        {
+            $model = new Projects();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            if ($model->load(Yii::$app->request->post()) && $model->save()) {
             //Yii::error("this is the url", Yii::$app->urlManager->createAbsoluteUrl(['projects/'.$model->Name], $scheme = null));
             //return $this->redirect([]); //'id' => $model->PID]);
-            return $this->redirect(['view', 'id' => $model->PID]);
+                return $this->redirect(['view', 'id' => $model->PID]);
+            } else {
+                return $this->render('create', [
+                    'model' => $model,
+                ]);
+            }
         } else {
-            return $this->render('create', [
-                'model' => $model,
-            ]);
+            throw new ForbiddenHttpException;
         }
     }
 
